@@ -1,6 +1,12 @@
 module.exports = {
   clearMocks: true,
-  collectCoverageFrom: ["src/**/*.js"],
+  collectCoverageFrom: [
+    "src/**/*.js",
+    "!<rootDir>/node_modules/",
+    "!<rootDir>/src/setup-tests.js",
+    "!<rootDir>/src/application.js",
+    "!<rootDir>/src/mocks/**/*.js"
+  ],
   coverageDirectory: "coverage",
   coveragePathIgnorePatterns: ["/node_modules/"],
   coverageReporters: ["html"],
