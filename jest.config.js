@@ -4,7 +4,7 @@ module.exports = {
     'src/**/*.js',
     '!<rootDir>/node_modules/',
     '!<rootDir>/src/setup-tests.js',
-    '!<rootDir>/src/application.js',
+    '!<rootDir>/src/index.js',
     '!<rootDir>/src/mocks/**/*.js'
   ],
   coverageDirectory: 'coverage',
