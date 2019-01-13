@@ -1,8 +1,14 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React, { Fragment } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Home } from './screens/home'
 import './application.scss'
-import { Button } from './components/button'
 
-const Index = () => <Button />
+const Application = () => (
+  <Fragment>
+    <Router>
+      <Route exact path="/" component={Home}></Route>
+    </Router>
+  </Fragment>
+)
 
-render(<Index />, document.getElementById('application'))
+export default Application
