@@ -1,0 +1,30 @@
+@import '../../global-styles/variables.scss';
+
+.logo {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+
+  color: $light-base-color;
+  font-size: 3em;
+  font-weight: $font-weight-bold;
+}
+
+.logo__word {
+  position: relative;
+  z-index: 1;
+}
+
+.logo__cover {
+  $size: 90px;
+
+  position: absolute;
+  top: -25%;
+  left: 0;
+  z-index: 0;
+
+  height: $size;
+  width: $size;
+
+  border: 8px solid $main-color;
+}
