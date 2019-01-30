@@ -1,0 +1,10 @@
+@import '../../global-styles/variables.scss';
+
+.banner {
+  display: flex;
+}
+
+.banner__quote {
+  font-weight: $font-weight-extra-bold;
+  font-size: 4em;
+}
