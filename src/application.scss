@@ -1,5 +1,10 @@
-$base-color: red;
+@import './global-styles/variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 
 body {
-  color: $base-color;
+  color: $light-base-color;
+  font-family: $main-font-family;
+  font-weight: $font-weight-regular;
+
+  background-color: $dark-base-color;
 }
