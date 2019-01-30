@@ -1,3 +1,23 @@
-button {
-  color: green;
+@import '../../global-styles/variables.scss';
+@import '../../global-styles/mixins.scss';
+
+.button {
+  display: flex;
+  padding: 1em;
+
+  color: $light-base-color;
+  font-family: $main-font-family;
+  font-size: 1em;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+
+  background-color: $main-color;
+  border: 0;
+  border-radius: $base-border-radius;
+
+  @include attention() {
+    background-color: lighten($main-color, 5);
+
+    cursor: pointer;
+  }
 }
