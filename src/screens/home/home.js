@@ -1,12 +1,12 @@
 import React from 'react'
 import { Logo } from '../../components/logo'
 import { Banner } from '../../components/banner'
-import { Button } from '../../components/button'
+import { ConnectButton } from '../../components/connect-button'
 
 export const Home = () => (
   <div>
     <Logo />
     <Banner />
-    <Button>Connect with spotify</Button>
+    <ConnectButton />
   </div>
 )
