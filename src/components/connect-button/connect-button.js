@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from '../button'
+import { Button } from '@src/components/button'
 import ENV from '@environment'
 import { get } from '../../helpers/get'
 
