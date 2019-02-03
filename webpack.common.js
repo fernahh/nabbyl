@@ -2,6 +2,8 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const argv = require('yargs').argv;
+const env = argv.env || 'development'
 
 module.exports = {
   entry: './src/index.js',
@@ -44,5 +46,10 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html'
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@environment$': `${__dirname}/environments/${env}.js`
+    }
+  }
 }

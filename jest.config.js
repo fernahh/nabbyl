@@ -18,6 +18,7 @@ module.exports = {
       lines: 100
     }
   },
+  moduleNameMapper: require('./webpack.common.js').resolve.alias,
   transform: {
     '^.+\\.(css|scss)$': '<rootDir>/src/mocks/styles-mock.js',
     '^.+\\.js$': 'babel-jest'
