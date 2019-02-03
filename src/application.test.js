@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
-import { Home } from './screens/home'
+import { Home } from '@src/screens/home'
 import Application from './application'
 
 describe('Application', () => {

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Home } from './screens/home'
-import './application.scss'
+import { Home } from '@src/screens/home'
+import '@src/application.scss'
 
 const Application = () => (
   <Fragment>

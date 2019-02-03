@@ -1,7 +1,7 @@
 import React from 'react'
-import { Logo } from '../../components/logo'
-import { Banner } from '../../components/banner'
-import { ConnectButton } from '../../components/connect-button'
+import { Logo } from '@src/components/logo'
+import { Banner } from '@src/components/banner'
+import { ConnectButton } from '@src/components/connect-button'
 
 export const Home = () => (
   <div>

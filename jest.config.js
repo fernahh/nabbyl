@@ -1,3 +1,6 @@
+const argv = require('yargs').argv
+const env = argv.env || 'development'
+
 module.exports = {
   clearMocks: true,
   collectCoverageFrom: [
@@ -18,7 +21,10 @@ module.exports = {
       lines: 100
     }
   },
-  moduleNameMapper: require('./webpack.common.js').resolve.alias,
+  moduleNameMapper: {
+    '@environment$': `<rootDir>/environments/${env}.js`,
+    '@src\/(.*)$': `<rootDir>/src/$1`,
+  },
   transform: {
     '^.+\\.(css|scss)$': '<rootDir>/src/mocks/styles-mock.js',
     '^.+\\.js$': 'babel-jest'
