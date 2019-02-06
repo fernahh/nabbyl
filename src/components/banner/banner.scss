@@ -1,4 +1,5 @@
 @import '@src/global-styles/variables.scss';
+@import '@src/global-styles/mixins.scss';
 
 .banner {
   display: flex;
@@ -6,5 +7,9 @@
 
 .banner__quote {
   font-weight: $font-weight-extra-bold;
-  font-size: 4em;
+  font-size: 3.5em;
+
+  @include respond-to($breakpoint-sm) {
+    font-size: 4em;
+  }
 }
