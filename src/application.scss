@@ -1,7 +1,13 @@
 @import '@src/global-styles/variables.scss';
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+
   color: $light-base-color;
   font-family: $main-font-family;
   font-weight: $font-weight-regular;
