@@ -26,7 +26,7 @@ module.exports = {
     '@src\/(.*)$': `<rootDir>/src/$1`,
   },
   transform: {
-    '^.+\\.(css|scss)$': '<rootDir>/src/mocks/styles-mock.js',
+    '^.+\\.(css|scss)$': '<rootDir>/__mocks__/styles-mock.js',
     '^.+\\.js$': 'babel-jest'
   },
   setupTestFrameworkScriptFile: '<rootDir>/src/setup-tests.js'
