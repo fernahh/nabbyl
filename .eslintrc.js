@@ -3,12 +3,12 @@ module.exports = {
   'env': {
     'browser': true,
     'es6': true,
+    'jest': true,
     'node': true
   },
   'extends': [
     'eslint:recommended',
-    'plugin:react/recommended',
-    'prettier'
+    'plugin:react/recommended'
   ],
   'parserOptions': {
     'ecmaFeatures': {
@@ -18,8 +18,8 @@ module.exports = {
     'sourceType': 'module'
   },
   'plugins': [
-    'react',
-    'prettier'
+    'jest',
+    'react'
   ],
   'rules': {
     'indent': [
@@ -37,8 +37,7 @@ module.exports = {
     'semi': [
       'error',
       'never'
-    ],
-    'prettier/prettier': 'error'
+    ]
   },
   'settings': {
     'react': {

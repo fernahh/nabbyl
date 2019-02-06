@@ -6,7 +6,7 @@ import '@src/application.scss'
 const Application = () => (
   <Fragment>
     <Router>
-      <Route exact path="/" component={Home}></Route>
+      <Route exact path="/" component={Home} />
     </Router>
   </Fragment>
 )
