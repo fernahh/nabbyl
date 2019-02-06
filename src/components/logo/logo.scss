@@ -1,9 +1,14 @@
 @import '@src/global-styles/variables.scss';
 
+$logo-size: 90px;
+
 .logo {
-  display: inline-block;
   position: relative;
   z-index: 1;
+
+  display: inline-block;
+  height: $logo-size;
+  margin-top: $base-offset * 2;
 
   color: $light-base-color;
   font-size: 3em;
@@ -13,18 +18,18 @@
 .logo__word {
   position: relative;
   z-index: 1;
+
+  line-height: $logo-size;
 }
 
 .logo__cover {
-  $size: 90px;
-
   position: absolute;
-  top: -25%;
+  top: 0;
   left: 0;
   z-index: 0;
 
-  height: $size;
-  width: $size;
+  height: $logo-size;
+  width: $logo-size;
 
   border: 8px solid $main-color;
 }
