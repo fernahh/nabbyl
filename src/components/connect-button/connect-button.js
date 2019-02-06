@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
-import { Button } from '@src/components/button'
+import React from 'react'
 import ENV from '@environment'
+import { Button } from '@src/components/button'
 import { get } from '../../helpers/get'
 
-export class ConnectButton extends Component {
-  connect = () => {
+export const ConnectButton = () => {
+  function connect () {
     get(`${ENV.API_BASE_URL}/auth`)
   }
 
-  render() {
-    return (
-      <div className="connect_button">
-        <Button onClick={this.connect}>Connect with Spotify</Button>
-      </div>
-    )
-  }
+  return (
+    <div className="connect_button">
+      <Button onClick={connect}>Connect with Spotify</Button>
+    </div>
+  )
 }

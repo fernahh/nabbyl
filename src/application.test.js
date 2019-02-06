@@ -7,7 +7,7 @@ import Application from './application'
 describe('Application', () => {
   it('have the home route', () => {
     const wrapper = mount(
-      <MemoryRouter initialEntries={["/"]}>
+      <MemoryRouter initialEntries={['/']}>
         <Application />
       </MemoryRouter>
     )
