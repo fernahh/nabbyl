@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "query-string": "^6.2.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-grid-system": "^4.4.2",
