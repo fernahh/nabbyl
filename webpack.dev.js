@@ -5,6 +5,7 @@ module.exports = merge(common, {
   mode: 'development',
   devServer: {
     contentBase: './dist',
-    historyApiFallback: true
+    historyApiFallback: true,
+    port: 3000
   }
 })
