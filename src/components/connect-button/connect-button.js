@@ -1,11 +1,10 @@
 import React from 'react'
 import ENV from '@environment'
 import { Button } from '@src/components/button'
-import { get } from '../../helpers/get'
 
 export const ConnectButton = () => {
   function connect () {
-    get(`${ENV.API_BASE_URL}/auth`)
+    window.location.replace(`${ENV.API_BASE_URL}/auth`)
   }
 
   return (

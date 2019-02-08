@@ -1,10 +1,7 @@
 import React from 'react'
 import { shallow, render } from 'enzyme'
 import ENV from '@environment'
-import { get } from '../../helpers/get'
 import { ConnectButton } from './index'
-
-jest.mock('../../helpers/get')
 
 describe('Connect Button Component', () => {
   it('render correctly', () => {
@@ -17,11 +14,10 @@ describe('Connect Button Component', () => {
     expect(wrapper.text()).toEqual('Connect with Spotify')
   })
 
-  it('get token from auth endpoint on click', () => {
+  it('redirect to auth URL', () => {
     const wrapper = shallow(<ConnectButton />)
+    window.location.replace = jest.fn()
     wrapper.find('Button').simulate('click')
-    expect(get).toBeCalledWith(`${ENV.API_BASE_URL}/auth`)
+    expect(window.location.replace).toBeCalledWith(`${ENV.API_BASE_URL}/auth`)
   })
-
-  it('redirect to app route', () => {})
 })
