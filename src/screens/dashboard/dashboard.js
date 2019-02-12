@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-grid-system'
 import { parseQueryString } from '@src/helpers/parse-query-string'
+import { SpotifyUser } from '@src/containers/spotify-user'
 
 export class Dashboard extends Component {
   state = {
-    accessToken: '',
-    refreshToken: ''
+    accessToken: ''
   }
 
   componentDidMount() {
-    const { access_token, refresh_token } = parseQueryString(location.hash) || {}
+    const { access_token } = parseQueryString(location.hash) || {}
 
-    if (hasTokens(access_token, refresh_token)) {
-      this.setState({
-        accessToken: access_token,
-        refreshToken: refresh_token
-      })
+    if (access_token) {
+      this.setState({ accessToken: access_token })
       history.pushState('', '/', location.pathname)
     }
   }
@@ -25,17 +22,13 @@ export class Dashboard extends Component {
       <div className="dashboard">
         <Container>
           <Row>
-            <Col> 
-              <p>accessToken: {this.state.accessToken}</p>
-              <p>refreshToken: {this.state.refreshToken}</p>
+            <Col xs={12}>
+              { this.state.accessToken 
+                && <SpotifyUser accessToken={this.state.accessToken} />}
             </Col>
           </Row>
         </Container>
       </div>
     )
   }
-}
-
-function hasTokens(access_token, refresh_token) {
-  return Boolean(access_token && refresh_token)
 }
