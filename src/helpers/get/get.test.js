@@ -12,8 +12,6 @@ describe('Get', () => {
   it('call get method from axios with params', () => {
     const params = { breed: 'beagle' }
     get('http://api.com/dog', params)
-    expect(axios.get).toBeCalledWith('http://api.com/dog', {
-      params
-    })
+    expect(axios.get).toBeCalledWith('http://api.com/dog', params)
   })
 })
