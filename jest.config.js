@@ -24,9 +24,10 @@ module.exports = {
   moduleNameMapper: {
     '@environment$': `<rootDir>/environments/${env}.js`,
     '@src\/(.*)$': `<rootDir>/src/$1`,
+    'react-router-dom': '<rootDir>/src/mocks/react-router-dom.js'
   },
   transform: {
-    '^.+\\.(css|scss)$': '<rootDir>/__mocks__/styles-mock.js',
+    '^.+\\.(css|scss)$': '<rootDir>/src/mocks/styles-mock.js',
     '^.+\\.js$': 'babel-jest'
   },
   setupTestFrameworkScriptFile: '<rootDir>/src/setup-tests.js'
