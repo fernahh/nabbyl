@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col } from 'react-grid-system'
 import { Logo } from '@src/components/logo'
 import { Banner } from '@src/components/banner'
-import { ConnectButton } from '@src/components/connect-button'
+import { ConnectButton } from '@src/containers/connect-button'
 import './home.scss'
 
 export const Home = () => (
