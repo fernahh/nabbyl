@@ -1,0 +1,11 @@
+.albums_list {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.albums_list__item {
+  display: block;
+  float: left;
+}
