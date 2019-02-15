@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Container, Row, Col } from 'react-grid-system'
 import { parseQueryString } from '@src/helpers/parse-query-string'
 import { SpotifyUser } from '@src/containers/spotify-user'
+import { SpotifyAlbumsList } from '@src/containers/spotify-albums-list'
 
 export class Dashboard extends Component {
   state = {
@@ -21,12 +22,21 @@ export class Dashboard extends Component {
     return (
       <div className="dashboard">
         <Container>
-          <Row>
-            <Col xs={12}>
-              { this.state.accessToken 
-                && <SpotifyUser accessToken={this.state.accessToken} />}
-            </Col>
-          </Row>
+          {
+            this.state.accessToken &&
+            (<Fragment>
+              <Row>
+                <Col xs={12}>
+                  <SpotifyUser accessToken={this.state.accessToken} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12}>
+                  <SpotifyAlbumsList accessToken={this.state.accessToken} />
+                </Col>
+              </Row>
+            </Fragment>)
+          }
         </Container>
       </div>
     )
