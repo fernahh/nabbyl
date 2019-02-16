@@ -1,0 +1,12 @@
+@import '@src/global-styles/variables.scss';
+
+.album {
+  margin-bottom: $base-offset * 4;
+}
+
+.album__image {
+  display: block;
+  width: 100%;
+
+  border-radius: $base-border-radius;
+}

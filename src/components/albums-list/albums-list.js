@@ -1,18 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './albums-list.scss'
+import { Col, Row } from 'react-grid-system'
+import { Album } from '@src/components/album'
 
 export const AlbumsList = props => {
   const { items } = props
 
   return (
-    <ul className="albums_list">
+    <Row className="albums_list">
       {items.map(item => (
-        <li key={item.album.id} className="albums_list__item">
-          {item.album.name}
-        </li>
+        <Col xs={6} sm={4} md={3} key={item.album.id}>
+          <Album album={item.album} />
+        </Col>
       ))}
-    </ul>
+    </Row>
   )
 }
 

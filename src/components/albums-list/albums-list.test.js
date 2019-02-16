@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { Col } from 'react-grid-system'
 import { AlbumsList } from './index'
 
 describe('Albums List', () => {
@@ -14,7 +15,7 @@ describe('Albums List', () => {
       { add_at: 6789, album: { id: 2, name: 'bar' } }, 
     ]
     const wrapper = shallow(<AlbumsList items={albums} />)
-    expect(wrapper.find('li').at(0).key()).toEqual('1')
-    expect(wrapper.find('li').at(1).key()).toEqual('2')
+    expect(wrapper.find(Col).at(0).key()).toEqual('1')
+    expect(wrapper.find(Col).at(1).key()).toEqual('2')
   })
 })
