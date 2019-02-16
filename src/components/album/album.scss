@@ -8,5 +8,38 @@
   display: block;
   width: 100%;
 
-  border-radius: $base-border-radius;
+  border-top-left-radius: $base-border-radius;
+  border-top-right-radius: $base-border-radius;
+}
+
+.album__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 140px;
+  padding: $base-offset * 2;
+  
+  background-color: $light-base-color;
+  border-bottom-left-radius: $base-border-radius;
+  border-bottom-right-radius: $base-border-radius;
+}
+
+.album__info__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60px;
+  margin-bottom: $base-offset;
+}
+
+.album__info__name {
+  color: $dark-base-color;
+  font-size: 1em;
+  font-weight: $font-weight-bold;
+  line-height: 1.2em;
+}
+
+.album__info__artist {
+  color: $gray-color-base;
+  font-size: .8em;
 }
