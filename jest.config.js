@@ -24,7 +24,8 @@ module.exports = {
   moduleNameMapper: {
     '@environment$': `<rootDir>/environments/${env}.js`,
     '@src\/(.*)$': `<rootDir>/src/$1`,
-    'react-router-dom': '<rootDir>/src/mocks/react-router-dom.js'
+    'react-router-dom': '<rootDir>/src/mocks/react-router-dom.js',
+    'balloon-css': '<rootDir>/src/mocks/styles-mock.js'
   },
   transform: {
     '^.+\\.(css|scss)$': '<rootDir>/src/mocks/styles-mock.js',

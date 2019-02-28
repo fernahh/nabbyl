@@ -1,0 +1,1 @@
+export { ColorPaletteButton } from './color-palette-button'
