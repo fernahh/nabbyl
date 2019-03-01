@@ -1,0 +1,24 @@
+@import '@src/global-styles/variables.scss';
+@import '@src/global-styles/mixins.scss';
+
+.color_palette {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.color_palette__item {
+  width: 20%;
+  height: 20px;
+
+  @include respond-to($breakpoint-lg) {
+    height: 32px;
+  }
+
+  @include respond-to($breakpoint-xl) {
+    height: 40px;
+  }
+}
