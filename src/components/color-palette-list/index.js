@@ -1,0 +1,1 @@
+export { ColorPaletteList } from './color-palette-list'

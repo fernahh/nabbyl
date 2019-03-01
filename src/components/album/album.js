@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ColorPalette } from '@src/components/color-palette'
+import { ColorPaletteList } from '@src/components/color-palette-list'
 import './album.scss'
 
 export const Album = (props) => {
@@ -16,7 +16,7 @@ export const Album = (props) => {
           <span className="album__info__name">{album.name}</span>
           <span className="album__info__artist">{album.artists[0].name}</span>
         </div>
-        <ColorPalette colors={album.colors} />
+        <ColorPaletteList colors={album.colors} />
       </div>
     </div>
   )

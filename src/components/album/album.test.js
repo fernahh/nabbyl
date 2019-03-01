@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ColorPalette } from '@src/components/color-palette'
+import { ColorPaletteList } from '@src/components/color-palette-list'
 import { Album } from './index'
 
 describe('Album', () => {
@@ -31,6 +31,6 @@ describe('Album', () => {
     const wrapper = shallow(<Album album={getAlbumMock()} />)
     expect(wrapper.find('.album__info__name').text()).toEqual('Nevermind')
     expect(wrapper.find('.album__info__artist').text()).toEqual('Nirvana')
-    expect(wrapper.find(ColorPalette).prop('colors')).toEqual(['#fff', '#000'])
+    expect(wrapper.find(ColorPaletteList).prop('colors')).toEqual(['#fff', '#000'])
   })
 })
