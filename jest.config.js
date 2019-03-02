@@ -31,5 +31,7 @@ module.exports = {
     '^.+\\.(css|scss)$': '<rootDir>/src/mocks/styles-mock.js',
     '^.+\\.js$': 'babel-jest'
   },
-  setupTestFrameworkScriptFile: '<rootDir>/src/setup-tests.js'
+  setupFilesAfterEnv: [
+    '<rootDir>/src/setup-tests.js'
+  ]
 }
