@@ -1,0 +1,12 @@
+.loader {
+  $size: 44px;
+
+  display: block;
+  width: $size;
+  height: $size;
+  margin: 0 auto;
+
+  background-image: url('./loader.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
