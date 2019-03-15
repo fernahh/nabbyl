@@ -1,0 +1,17 @@
+.fade_transition__enter {
+  opacity: 0.01;
+
+  &--active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+}
+
+.fade_transition__exit {
+  opacity: 1;
+
+  &--active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+  }
+}
