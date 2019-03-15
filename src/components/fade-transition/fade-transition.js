@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
-import './fade-transition.scss';
+import './fade-transition.scss'
 
 export const FadeTransition = props => (
   <CSSTransition timeout={500} classNames={{
