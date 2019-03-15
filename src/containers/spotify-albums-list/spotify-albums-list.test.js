@@ -10,7 +10,10 @@ jest.mock('@src/helpers/get', () => ({
     data: [
       { id: 1 },
       { id: 2 }
-    ]
+    ],
+    headers: {
+      offset: 10
+    }
   }))
 }))
 jest.mock('@src/helpers/build-headers', () => ({
@@ -24,20 +27,27 @@ jest.mock('@src/helpers/build-headers', () => ({
 describe('Spotify Albums List', () => {
   it('render with appropriate css class', () => {
     const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    wrapper.update()
     expect(wrapper.prop('className')).toEqual('spotify_albums_list')
   })
 
   it('get albums data', () => {
-    shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const { offset } = wrapper.state()
     expect(buildHeaders).toBeCalledWith('foobar')
-    expect(get).toBeCalledWith(`${ENV.API_BASE_URL}/albums`, {
+    expect(get).toBeCalledWith(`${ENV.API_BASE_URL}/albums?offset=${offset}`, {
       headers: {
         'Authorization': 'Bearer foobar'
       }
     })
   })
 
-  it('define album data on state', (done) => {
+  it('indicate that a request is running', () => {
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    expect(wrapper.state('isRequesting')).toEqual(true)
+  })
+
+  it('define albums on state', done => {
     const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
     process.nextTick(() => {
       wrapper.update()
@@ -47,5 +57,80 @@ describe('Spotify Albums List', () => {
       ])
       done()
     })
+  })
+
+  it('indicate that a request is completed', done => {
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    process.nextTick(() => {
+      wrapper.update()
+      expect(wrapper.state('isRequesting')).toEqual(false)
+      done()
+    })
+  })
+
+  it('define the offset pagination with header value', done => {
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    process.nextTick(() => {
+      wrapper.update()
+      expect(wrapper.state('offset')).toEqual(10)
+      done()
+    })
+  })
+
+  it('get albums on scroll', () => {
+    window.addEventListener = jest.fn()
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const instance = wrapper.instance()
+    expect(window.addEventListener).toHaveBeenCalledWith(
+      'scroll', 
+      instance.getAlbumsOnScroll
+    )
+  })
+
+  it('remove the scroll listener on component unmount', () => {
+    window.removeEventListener = jest.fn()
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const instance = wrapper.instance()
+    wrapper.unmount()
+    expect(window.removeEventListener).toHaveBeenCalledWith(
+      'scroll', 
+      instance.getAlbumsOnScroll
+    )
+  })
+
+  it('do not get albums when there some request in progress', () => {
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const instance = wrapper.instance()
+    instance.getAlbums = jest.fn()
+    wrapper.setState({ isRequesting: true })
+    instance.getAlbumsOnScroll()
+    expect(instance.getAlbums).not.toBeCalled()
+  })
+
+  it('do not get albums when scrolled less than seventy percent of the document', () => {
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    window.innerHeight = 700
+    window.scrollY = 100
+    Object.defineProperty(document.body, 'offsetHeight', {
+      value: 200
+    })
+    const instance = wrapper.instance()
+    instance.getAlbums = jest.fn()
+    instance.getAlbumsOnScroll()
+    expect(instance.getAlbums).not.toBeCalled()
+  })
+
+  it('get albums when scrolled more than seventy percent of the document', () => {
+    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    window.innerHeight = 1000
+    window.scrollY = 1000
+    Object.defineProperty(document.body, 'offsetHeight', {
+      value: 200
+    })
+    wrapper.setState({ isRequesting: false })
+    const instance = wrapper.instance()
+    instance.getAlbums = jest.fn()
+    instance.getAlbumsOnScroll()
+    expect(instance.getAlbums).toBeCalled()
   })
 })
