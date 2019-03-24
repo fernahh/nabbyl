@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { Redirect } from 'react-router-dom'
 import { parseQueryString } from '../../helpers/parse-query-string'
 import { Dashboard } from './index'
 import { SpotifyUser } from '@src/containers/spotify-user'
@@ -8,13 +9,15 @@ jest.mock('../../helpers/parse-query-string')
 
 describe('Dashboard Component', () => {
   it('render with appropriate css class', () => {
+    parseQueryString.mockReturnValue({ access_token: 'foo123' })
     const wrapper = shallow(<Dashboard />)
     expect(wrapper.find('.dashboard')).toBeTruthy()
   })
 
-  it('define access token as a empty string', () => {
+  it('redirect to home when access token is not present', () => {
+    parseQueryString.mockReturnValue({})
     const wrapper = shallow(<Dashboard />)
-    expect(wrapper.state('accessToken')).toEqual('')
+    expect(wrapper.find(Redirect).length).toBeTruthy()
   })
 
   it('define access token with value from query string url', () => {
