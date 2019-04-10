@@ -1,0 +1,15 @@
+@import '@src/global-styles/variables.scss';
+
+.logout {
+  $size: $base-offset * 2.3;
+
+  display: inline-block;
+  width: $size;
+  height: $size;
+
+  background-image: url('./logout.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: 0;
+}
