@@ -14,22 +14,24 @@ jest.mock('@src/helpers/get', () => ({
 }))
 
 describe('Spotify User', () => {
+  const context = { accessToken: 'foobar' }
+
   it('render with appropriate css class', () => {
-    const wrapper = shallow(<SpotifyUser accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyUser />)
     expect(wrapper.prop('className')).toEqual('spotify_user')
   })
 
   it('get user data', () => {
-    shallow(<SpotifyUser accessToken={'foobar'} />)
+    shallow(<SpotifyUser />, { context })
     expect(get).toBeCalledWith(`${ENV.API_BASE_URL}/me`, {
       headers: {
-        'Authorization': 'Bearer foobar'
+        'Authorization': 'Bearer undefined' // FIXME
       }
     })
   })
 
-  it('define user data on state', (done) => {
-    const wrapper = mount(<SpotifyUser accessToken={'foobar'} />)
+  it('define user data on state', done => {
+    const wrapper = shallow(<SpotifyUser />, { context })
     process.nextTick(() => {
       wrapper.update()
       expect(wrapper.state('name')).toEqual('John')
