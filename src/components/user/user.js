@@ -4,8 +4,9 @@ import './user.scss'
 
 export const User = (props) => (
   <div className="user">
-    <img src={props.image} alt={props.name} className="user__image" />
-    <span className="user__name">{props.name}</span> 
+    <div className="user__image">
+      <img src={props.image} alt={props.name} />
+    </div>
   </div>
 )
 

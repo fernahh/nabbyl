@@ -2,24 +2,19 @@
 
 .user {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  max-width: 290px;
-  padding-top: $base-offset * 2;
-  padding-bottom: $base-offset * 2;
 }
 
 .user__image {
-  $size: 70px;
+  $size: $base-offset * 4.5;
 
   display: block;
   height: $size;
   width: $size;
+  overflow: hidden;
 
-  border: 8px solid lighten($dark-base-color, 5%);
   border-radius: 50%;
-  box-shadow: 0px 0px 40px -1px rgba(0, 0, 0, .6);
+
+  > img { width: 100%; }
 }
 
 .user__name {
