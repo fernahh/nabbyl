@@ -1,6 +1,7 @@
 $light-base-color: #ffffff;
 $gray-color-base: #949494;
-$dark-base-color: #1a1d2c;
+$dark-base-color: #252525;
+$dark-strong-color: #191414;
 $main-color: #ed215d;
 
 $main-font-family: 'Poppins', sans-serif;
@@ -16,3 +17,6 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+
+$z-index-header: 20;
+$header-size: $base-offset * 8;

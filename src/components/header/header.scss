@@ -1,0 +1,18 @@
+@import '@src/global-styles/variables.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: $z-index-header;
+  
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $header-size;
+  
+  background-color: $dark-strong-color;
+}
+
+.header .user {
+  margin-right: $base-offset * 2;
+}
