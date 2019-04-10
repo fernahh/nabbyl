@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import { TokenContext } from '@src/components/token-context'
 import ENV from '@environment'
 import { User } from '@src/components/user'
 import { get } from '@src/helpers/get'
 
 export class SpotifyUser extends Component {
-  static propTypes = {
-    accessToken: PropTypes.string.isRequired
-  }
+  static contextType = TokenContext
 
   state = {
     name: '',
@@ -15,7 +13,7 @@ export class SpotifyUser extends Component {
   }
 
   componentDidMount() {
-    get(`${ENV.API_BASE_URL}/me`, buildHeaders(this.props.accessToken))
+    get(`${ENV.API_BASE_URL}/me`, buildHeaders(this.context.accessToken))
       .then(response => {
         this.setState({
           name: response.data.display_name,
