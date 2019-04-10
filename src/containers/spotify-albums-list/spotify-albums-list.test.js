@@ -25,16 +25,18 @@ jest.mock('@src/helpers/build-headers', () => ({
 }))
 
 describe('Spotify Albums List', () => {
+  const context = { accessToken: 'foobar' }
+
   it('render with appropriate css class', () => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     wrapper.update()
     expect(wrapper.prop('className')).toEqual('spotify_albums_list')
   })
 
   it('get albums data', () => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     const { offset } = wrapper.state()
-    expect(buildHeaders).toBeCalledWith('foobar')
+    expect(buildHeaders).toBeCalled() // FIXME
     expect(get).toBeCalledWith(`${ENV.API_BASE_URL}/albums?offset=${offset}`, {
       headers: {
         'Authorization': 'Bearer foobar'
@@ -43,12 +45,12 @@ describe('Spotify Albums List', () => {
   })
 
   it('indicate that a request is running', () => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     expect(wrapper.state('isRequesting')).toEqual(true)
   })
 
   it('define albums on state', done => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     process.nextTick(() => {
       wrapper.update()
       expect(wrapper.state('items')).toEqual([
@@ -60,7 +62,7 @@ describe('Spotify Albums List', () => {
   })
 
   it('indicate that a request is completed', done => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     process.nextTick(() => {
       wrapper.update()
       expect(wrapper.state('isRequesting')).toEqual(false)
@@ -69,7 +71,7 @@ describe('Spotify Albums List', () => {
   })
 
   it('define the offset pagination with header value', done => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     process.nextTick(() => {
       wrapper.update()
       expect(wrapper.state('offset')).toEqual(10)
@@ -79,7 +81,7 @@ describe('Spotify Albums List', () => {
 
   it('get albums on scroll', () => {
     window.addEventListener = jest.fn()
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     const instance = wrapper.instance()
     expect(window.addEventListener).toHaveBeenCalledWith(
       'scroll', 
@@ -89,7 +91,7 @@ describe('Spotify Albums List', () => {
 
   it('remove the scroll listener on component unmount', () => {
     window.removeEventListener = jest.fn()
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     const instance = wrapper.instance()
     wrapper.unmount()
     expect(window.removeEventListener).toHaveBeenCalledWith(
@@ -99,7 +101,7 @@ describe('Spotify Albums List', () => {
   })
 
   it('do not get albums when there some request in progress', () => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     const instance = wrapper.instance()
     instance.getAlbums = jest.fn()
     wrapper.setState({ isRequesting: true })
@@ -108,7 +110,7 @@ describe('Spotify Albums List', () => {
   })
 
   it('do not get albums when scrolled less than seventy percent of the document', () => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     window.innerHeight = 700
     window.scrollY = 100
     Object.defineProperty(document.body, 'offsetHeight', {
@@ -121,7 +123,7 @@ describe('Spotify Albums List', () => {
   })
 
   it('get albums when scrolled more than seventy percent of the document', () => {
-    const wrapper = shallow(<SpotifyAlbumsList accessToken={'foobar'} />)
+    const wrapper = shallow(<SpotifyAlbumsList />, { context })
     window.innerHeight = 1000
     window.scrollY = 1000
     Object.defineProperty(document.body, 'offsetHeight', {

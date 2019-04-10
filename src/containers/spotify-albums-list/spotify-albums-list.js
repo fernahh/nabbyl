@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import { TokenContext } from '@src/components/token-context'
 import ENV from '@environment'
 import { AlbumsList } from '@src/components/albums-list'
 import { get } from '@src/helpers/get'
 import { buildHeaders } from '@src/helpers/build-headers'
 
 export class SpotifyAlbumsList extends Component {
-  static propTypes = {
-    accessToken: PropTypes.string.isRequired
-  }
+  static contextType = TokenContext
 
   state = {
     isRequesting: false,
@@ -37,7 +35,7 @@ export class SpotifyAlbumsList extends Component {
 
     get(
       `${ENV.API_BASE_URL}/albums?offset=${this.state.offset}`, 
-      buildHeaders(this.props.accessToken)
+      buildHeaders(this.context.accessToken)
     ).then(response => {
       this.setState({ 
         isRequesting: false,
