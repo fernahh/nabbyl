@@ -1,0 +1,6 @@
+@import '@src/global-styles/variables.scss';
+
+.dashboard {
+  width: 100%;
+  padding-top: $header-size + ($base-offset * 4);
+}

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { Redirect } from 'react-router-dom'
 import { parseQueryString } from '../../helpers/parse-query-string'
 import { Dashboard } from './index'
-import { SpotifyUser } from '@src/containers/spotify-user'
+import { SpotifyAlbumsList } from '@src/containers/spotify-albums-list'
 
 jest.mock('../../helpers/parse-query-string')
 
@@ -33,15 +33,15 @@ describe('Dashboard Component', () => {
     expect(history.pushState).toBeCalledWith('', '/', location.pathname)
   })
 
-  it('render spotify user component', () => {
+  it('render spotify albums list component', () => {
     parseQueryString.mockReturnValue({ access_token: 'foo123' })
     const wrapper = shallow(<Dashboard />)
-    expect(wrapper.find(SpotifyUser).length).toBeTruthy()
+    expect(wrapper.find(SpotifyAlbumsList).length).toBeTruthy()
   })
 
-  it('not render spotify user component when access token is empty', () => {
+  it('not render spotify albums list component when access token is empty', () => {
     parseQueryString.mockReturnValue({ access_token: '' })
     const wrapper = shallow(<Dashboard />)
-    expect(wrapper.find(SpotifyUser).length).toBeFalsy()
+    expect(wrapper.find(SpotifyAlbumsList).length).toBeFalsy()
   })
 })
