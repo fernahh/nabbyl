@@ -1,3 +1,3 @@
 export default {
- API_BASE_URL: 'http://api.myproject.com/v1'
+ API_BASE_URL: 'https://nabbyl-server.herokuapp.com/'
 }
