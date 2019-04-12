@@ -1,7 +1,6 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
 const argv = require('yargs').argv
 const env = argv.env || 'development'
 
@@ -9,8 +8,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'application.[contenthash].js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    path: path.resolve(__dirname, 'dist/static/'),
   },
   module: {
     rules: [
@@ -42,10 +40,6 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
       filename: 'application.[contenthash].css',
-    }),
-    new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html'
     })
   ],
   resolve: {
