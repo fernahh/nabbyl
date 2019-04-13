@@ -17,5 +17,10 @@ module.exports = merge(common, {
       template: './src/index.html',
       filename: './index.html'
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@environment$': `${__dirname}/environments/development.js`,
+    }
+  }
 })
