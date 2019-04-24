@@ -11,6 +11,7 @@ export class SpotifyAlbumsList extends Component {
   state = {
     isRequesting: false,
     items: [],
+    hasError: false,
     offset: 0
   }
 
@@ -30,27 +31,36 @@ export class SpotifyAlbumsList extends Component {
 
   getAlbums = () => {
     this.setState({ 
-      isRequesting: true 
+      isRequesting: true,
+      hasError: false
     })
 
     get(
       `${ENV.API_BASE_URL}/albums?offset=${this.state.offset}`, 
       buildHeaders(this.context.accessToken)
-    ).then(response => {
-      this.setState({ 
-        isRequesting: false,
-        items: this.state.items.concat(response.data),
-        offset: response.headers.offset
+    ).then(
+      response => {
+        this.setState({ 
+          isRequesting: false,
+          hasError: false,
+          items: this.state.items.concat(response.data),
+          offset: response.headers.offset
+        })
+      },
+      () => {
+        this.setState({
+          isRequesting: false,
+          hasError: true
+        })
       })
-    })
   }
 
   render() {
     return (
       <div className="spotify_albums_list">
-        { this.state.items && 
-          <AlbumsList items={this.state.items} 
-            isRequesting={this.state.isRequesting} /> }
+        <AlbumsList items={this.state.items} 
+          isRequesting={this.state.isRequesting}
+          hasError={this.state.hasError} />
       </div>
     )
   }
