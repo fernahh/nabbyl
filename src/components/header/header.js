@@ -15,7 +15,7 @@ export const Header = () => (
         <Col xs={6} style={{ 
           display: 'flex', 
           alignItems: 'center', 
-          justifyContent: 'end' 
+          justifyContent: 'flex-end'
         }}>
           <SpotifyUser />
           <Logout /> 
