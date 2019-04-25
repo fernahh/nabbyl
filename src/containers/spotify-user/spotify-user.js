@@ -9,23 +9,33 @@ export class SpotifyUser extends Component {
 
   state = {
     name: '',
-    image: ''
+    image: '',
+    hasError: false
   }
 
   componentDidMount() {
     get(`${ENV.API_BASE_URL}/me`, buildHeaders(this.context.accessToken))
-      .then(response => {
-        this.setState({
-          name: response.data.display_name,
-          image: response.data.images[0].url
+      .then(
+        response => {
+          this.setState({
+            name: response.data.display_name,
+            image: response.data.images[0].url
+          })
+        },
+        () => {
+          this.setState({
+            hasError: true
+          })
         })
-      })
   }
 
   render() {
     return (
       <div className="spotify_user">
-        <User name={this.state.name} image={this.state.image} />
+        <User
+          name={this.state.name}
+          image={this.state.image}
+          hasError={this.state.hasError} />
       </div>
     )
   }
