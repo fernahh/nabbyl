@@ -1,13 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Loader } from '@src/components/loader'
+import { Notification } from '@src/components/notification'
 import { Album } from '@src/components/album'
 import { AlbumsList } from './index'
 
 describe('Albums List', () => {
   it('render with appropriate css class', () => {
     const wrapper = shallow(<AlbumsList items={[]} isRequesting={false} />)
-    expect(wrapper.prop('className')).toEqual('albums_list')
+    expect(wrapper.exists('.albums_list')).toEqual(true)
   })
 
   it('render a list of albums', () => {
@@ -23,5 +24,10 @@ describe('Albums List', () => {
   it('render the loader', () => {
     const wrapper = shallow(<AlbumsList items={[]} isRequesting={true} />)
     expect(wrapper.find(Loader).length).toBeTruthy()
+  })
+
+  it('render a notification component', () => {
+    const wrapper = shallow(<AlbumsList items={[]} isRequesting={true} hasError={true} />)
+    expect(wrapper.find(Notification).length).toBeTruthy()
   })
 })

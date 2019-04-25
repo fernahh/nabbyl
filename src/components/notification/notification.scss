@@ -1,0 +1,48 @@
+@import '@src/global-styles/variables.scss';
+
+$offset: $base-offset * 2;
+
+@keyframes slideup {
+  0% {
+    opacity: 0;
+    bottom: -100%;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: $offset;
+  }
+}
+
+.notification {
+  position: fixed;
+  left: $offset;
+  right: $offset;
+  bottom: $offset;
+  z-index: $z-index-notification;
+  
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - ($offset * 2));
+  padding: $offset;
+
+  border-radius: $base-border-radius;
+
+  animation-duration: 1s;
+  animation-name: slideup;
+
+  &--error {
+    background-color: $danger-base-color;
+
+    color: $light-base-color;
+  }
+}
+
+.notification__header__title {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.notification__content p {
+  margin: 0;
+}
