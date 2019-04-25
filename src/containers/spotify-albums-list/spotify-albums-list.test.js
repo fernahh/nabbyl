@@ -28,9 +28,8 @@ describe('Spotify Albums List', () => {
     }
   }
 
-  const stubGet = (type, response, shouldAbortRequest) => {
+  const stubGet = (type, response, shouldAbortRequest) =>
     get.mockReturnValue(promiseMock(type, response, shouldAbortRequest))
-  }
 
   it('render with appropriate css class', () => {
     stubGet('success', responseMock)
@@ -162,4 +161,7 @@ describe('Spotify Albums List', () => {
     const wrapper = shallow(<SpotifyAlbumsList />, { context })
     expect(wrapper.state('hasError')).toEqual(true)
   })
+
+  // it('do not get albums when there is no more albums', () => {
+  // })
 })

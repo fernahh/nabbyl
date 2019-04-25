@@ -30,6 +30,8 @@ export class SpotifyAlbumsList extends Component {
   }
 
   getAlbums = () => {
+    if (isNaN(this.state.offset)) return 
+    
     this.setState({ 
       isRequesting: true,
       hasError: false
