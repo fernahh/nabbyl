@@ -1,21 +1,21 @@
 import React from 'react'
 import { shallow, render } from 'enzyme'
 import ENV from '@environment'
-import { ConnectButton } from './index'
+import { SpotifyConnectButton } from './index'
 
-describe('Connect Button Component', () => {
+describe('Spotify Connect Button Component', () => {
   it('render correctly', () => {
-    const wrapper = shallow(<ConnectButton />)
-    expect(wrapper.prop('className')).toEqual('connect_button')
+    const wrapper = shallow(<SpotifyConnectButton />)
+    expect(wrapper.prop('className')).toEqual('spotify_connect_button')
   })
 
   it('indicate the connection with Spotify', () => {
-    const wrapper = render(<ConnectButton />)
+    const wrapper = render(<SpotifyConnectButton />)
     expect(wrapper.text()).toEqual('Connect with Spotify')
   })
 
   it('redirect to auth URL', () => {
-    const wrapper = shallow(<ConnectButton />)
+    const wrapper = shallow(<SpotifyConnectButton />)
     window.location.replace = jest.fn()
     wrapper.find('Button').simulate('click')
     expect(window.location.replace).toBeCalledWith(`${ENV.API_BASE_URL}/auth`)

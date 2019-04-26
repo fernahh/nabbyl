@@ -1,0 +1,27 @@
+@import '@src/global-styles/variables.scss';
+
+.spotify_connect_button .button {
+  $size: $base-offset * 5;
+
+  position: relative;
+
+  display: inline-block;
+  max-width: 260px;
+
+  text-align: left;
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+
+    display: inline-block;
+    width: $size;
+    height: $size;
+
+    background-image: url('./spotify.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: right;
+  }
+}
