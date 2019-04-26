@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet'
 import { Home } from '@src/screens/home'
 import { Dashboard } from '@src/screens/dashboard'
 import '@src/application.scss'
@@ -10,11 +10,18 @@ const Application = () => (
     <Helmet>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       <meta name="keywords" content="spotify, albums, color palettes" />
-      <meta name="description" content="Connect with your Spotify account and get color palettes from your favorite albums."></meta>
-      <meta name="application-name" content="nabbyl"></meta>
+      <meta name="description" content="Connect with your Spotify account and get color palettes from your favorite albums." />
+      <meta name="application-name" content="nabbyl" />
       <title>nabbyl: get color palettes from your favorite albums</title>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content="@fernahh" />
+      <meta name="twitter:title" content="nabbyl: get color palettes from your favorite albums" />
+      <meta name="twitter:description" content="Connect with your Spotify account and get color palettes from your favorite albums." />
+      <meta property="og:url" content="https://nabbyl.com" />
+      <meta property="og:title" content="nabbyl: get color palettes from your favorite albums" />
+      <meta property="og:description" content="Connect with your Spotify account and get color palettes from your favorite albums." />
     </Helmet>
     <Router>
       <div>
