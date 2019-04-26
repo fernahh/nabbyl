@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const argv = require('yargs').argv
 
 module.exports = {
@@ -39,7 +40,13 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
       filename: 'application.[contenthash].css',
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: `${__dirname}/src/assets/`,
+        to: 'assets'
+      }
+    ])
   ],
   resolve: {
     alias: {
