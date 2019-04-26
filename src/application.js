@@ -19,9 +19,11 @@ const Application = () => (
       <meta name="twitter:creator" content="@fernahh" />
       <meta name="twitter:title" content="nabbyl: get color palettes from your favorite albums" />
       <meta name="twitter:description" content="Connect with your Spotify account and get color palettes from your favorite albums." />
+      <meta name="twitter:image" content="https://nabbyl.com/static/assets/images/banner.jpg" />
       <meta property="og:url" content="https://nabbyl.com" />
       <meta property="og:title" content="nabbyl: get color palettes from your favorite albums" />
       <meta property="og:description" content="Connect with your Spotify account and get color palettes from your favorite albums." />
+      <meta property="og:image" content="https://nabbyl.com/static/assets/images/banner.jpg" />
     </Helmet>
     <Router>
       <div>
