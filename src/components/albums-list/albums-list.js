@@ -15,7 +15,7 @@ export const AlbumsList = props => {
     <Fragment>
       { hasError && <Notification /> }
       <TransitionGroup component={Row} className="albums_list">
-        {items.length && items.map(item => (
+        {items.map(item => (
           <FadeTransition key={item.album.id}>
             <Col xs={6} sm={4} md={3} key={item.album.id}>
               <Album album={item.album} />
