@@ -1,0 +1,1 @@
+export { AuthenticatedContent } from './authenticated-content'
