@@ -1,4 +1,4 @@
-# nabbyl
+# nabbyl [![CircleCI](https://circleci.com/gh/fernahh/nabbyl.svg?style=svg)](https://circleci.com/gh/fernahh/nabbyl)
 
 > Connect with your Spotify account and get color palettes from your favorite albums.
 
