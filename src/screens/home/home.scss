@@ -1,5 +1,16 @@
+@import '@src/global-styles/variables.scss';
+@import '@src/global-styles/mixins.scss';
+
 .home {
   display: flex;
   min-height: 100vh;
   align-items: center;
+}
+
+.home .button {
+  margin-bottom: $base-offset;
+  
+  @include respond-to($breakpoint-md) {
+    margin-bottom: $base-offset * 8;
+  }
 }

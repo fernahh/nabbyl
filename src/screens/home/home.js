@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col } from 'react-grid-system'
 import { Logo } from '@src/components/logo'
 import { Banner } from '@src/components/banner'
+import { Menu } from '@src/components/menu'
 import { SpotifyConnectButton } from '@src/containers/spotify-connect-button'
 import './home.scss'
 
@@ -21,6 +22,11 @@ export const Home = () => (
       <Row>
         <Col xs={12} sm={7} md={6} lg={4}>
           <SpotifyConnectButton />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Menu />
         </Col>
       </Row>
     </Container>
