@@ -38,7 +38,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "regenerator-runtime": "^0.13.2",
+    "regenerator-runtime": "^0.13.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.36.1",
@@ -56,7 +56,7 @@
     "react-dom": "^16.8.6",
     "react-grid-system": "^4.4.10",
     "react-helmet": "^5.2.1",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.0.1",
     "react-transition-group": "^2.9.0"
   }
 }
