@@ -8,6 +8,7 @@ module.exports = {
     '!<rootDir>/node_modules/',
     '!<rootDir>/src/setup-tests.js',
     '!<rootDir>/src/index.js',
+    '!<rootDir>/src/application.js',
     '!<rootDir>/src/mocks/**/*.js'
   ],
   coverageDirectory: 'coverage',
@@ -15,16 +16,15 @@ module.exports = {
   coverageReporters: ['html'],
   coverageThreshold: {
     global: {
-      statements: 98,
+      statements: 95,
       branches: 95,
-      functions: 100,
-      lines: 100
+      functions: 95,
+      lines: 95
     }
   },
   moduleNameMapper: {
     '@environment$': `<rootDir>/environments/${env}.js`,
     '@src\/(.*)$': `<rootDir>/src/$1`,
-    'react-router-dom': '<rootDir>/src/mocks/react-router-dom.js',
     'balloon-css': '<rootDir>/src/mocks/styles-mock.js'
   },
   transform: {
