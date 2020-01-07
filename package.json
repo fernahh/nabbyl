@@ -58,5 +58,8 @@
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.1.2",
     "react-transition-group": "^2.9.0"
+  },
+  "engines": {
+    "node": "12.x" 
   }
 }
