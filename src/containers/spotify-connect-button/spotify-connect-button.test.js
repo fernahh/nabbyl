@@ -4,6 +4,17 @@ import ENV from '@environment'
 import { SpotifyConnectButton } from './index'
 
 describe('Spotify Connect Button Component', () => {
+  const { location } = window
+
+  beforeAll(() => {
+    delete window.location
+    window.location = { replace: jest.fn() }
+  })
+
+  afterAll(() => {
+    window.location = location
+  })
+
   it('render correctly', () => {
     const wrapper = shallow(<SpotifyConnectButton />)
     expect(wrapper.prop('className')).toEqual('spotify_connect_button')
@@ -16,7 +27,6 @@ describe('Spotify Connect Button Component', () => {
 
   it('redirect to auth URL', () => {
     const wrapper = shallow(<SpotifyConnectButton />)
-    window.location.replace = jest.fn()
     wrapper.find('Button').simulate('click')
     expect(window.location.replace).toBeCalledWith(`${ENV.API_BASE_URL}/auth`)
   })
