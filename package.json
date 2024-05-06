@@ -60,6 +60,6 @@
     "react-transition-group": "^2.9.0"
   },
   "engines": {
-    "node": "12.x"
+    "node": "20.x"
   }
 }
