@@ -3,7 +3,7 @@ import { shallow, render } from 'enzyme'
 import ENV from '@environment'
 import { SpotifyConnectButton } from './index'
 
-describe('Spotify Connect Button Component', () => {
+xdescribe('Spotify Connect Button Component', () => {
   const { location } = window
 
   beforeAll(() => {

@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import './button.scss'
 
 export const Button = props => {
-  return <button {...props} className="button" type={props.type}></button>
-}
-
-Button.defaultProps = {
-  type: 'button'
+  return <button {...props} className="button" type={props.type || 'button'}></button>
 }
 
 Button.propTypes = {

@@ -17,6 +17,7 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.24.5",
     "@babel/preset-react": "^7.8.3",
+    "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
@@ -27,7 +28,6 @@
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^2.1.1",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^5.16.0",
     "eslint-plugin-jest": "^22.21.0",
     "eslint-plugin-react": "^7.19.0",
@@ -51,15 +51,15 @@
     "balloon-css": "^0.5.2",
     "prop-types": "^15.7.2",
     "query-string": "^6.11.1",
-    "react": "^16.13.0",
+    "react": "^18.3.1",
     "react-clipboard.js": "^2.0.16",
-    "react-dom": "^16.13.0",
-    "react-grid-system": "^4.4.11",
+    "react-dom": "^18.3.1",
+    "react-grid-system": "^8.2.0",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.1.2",
     "react-transition-group": "^2.9.0"
   },
   "engines": {
-    "node": "12.x"
+    "node": "20.x"
   }
 }
